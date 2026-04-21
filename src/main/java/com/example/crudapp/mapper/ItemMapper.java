@@ -14,7 +14,7 @@ public class ItemMapper {
 
     public static Item toEntity(ItemDTO dto) {
         Item item = new Item();
-        item.setId(dto.getId());
+        // Do NOT set id — let the DB generate it via @GeneratedValue
         item.setName(dto.getName());
         item.setDescription(dto.getDescription());
         return item;

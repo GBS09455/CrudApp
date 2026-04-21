@@ -1,26 +1,24 @@
 package com.example.crudapp.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@ToString(exclude = "person")
-public class Item {
+@ToString(exclude = "items")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
-    @ManyToOne
-    @JoinColumn(name = "person_id")
+    private int age;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Person person;
+    private List<Item> items;
 }
