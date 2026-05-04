@@ -15,9 +15,6 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("CrudApp API")
                         .version("1.0.0")
-                        .description("REST API documentation for CrudApp")
-                        .contact(new Contact()
-                                .name("Example Team")
-                                .email("contact@example.com")));
+                        .description("REST API documentation for CrudApp"));
     }
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@Tag(name = "Items", description = "CRUD operations for items")
+@Tag(name = "Items", description = "Oerations for items")
 public class ItemController {
     @Autowired
     private ItemService itemService;
