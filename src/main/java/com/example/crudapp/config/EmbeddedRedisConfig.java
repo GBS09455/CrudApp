@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import redis.embedded.RedisServer;
 
+
 import java.io.IOException;
 
 @Configuration
@@ -22,7 +23,11 @@ public class EmbeddedRedisConfig {
 
     @PostConstruct
     public void startRedis() throws IOException {
-        redisServer = new RedisServer(redisPort);
+        redisServer = RedisServer.builder()
+                .port(redisPort)
+                .setting("bind 127.0.0.1")
+                .setting("maxmemory 128mb")
+                .build();
         redisServer.start();
         log.info(">>> Embedded Redis pornit pe portul {}", redisPort);
     }
